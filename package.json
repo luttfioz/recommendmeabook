@@ -7,6 +7,7 @@
     "build": "vue-cli-service build",
     "test:unit": "vue-cli-service test:unit",
     "lint": "vue-cli-service lint",
+    "lint-fix": "eslint --fix --ext .ts --ext .vue ./src ",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
   },
@@ -41,6 +42,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.1.2",
     "eslint": "^6.7.2",
+    "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-import": "^2.20.2",
     "eslint-plugin-node": "^11.1.0",
     "eslint-plugin-promise": "^4.2.1",
@@ -59,12 +61,15 @@
     "extends": [
       "plugin:vue/vue3-essential",
       "@vue/standard",
-      "@vue/typescript/recommended"
+      "@vue/typescript/recommended",
+      "prettier"
     ],
     "parserOptions": {
       "ecmaVersion": 2020
     },
-    "rules": {},
+    "rules": {
+      "no-debugger": "off"
+    },
     "overrides": [
       {
         "files": [

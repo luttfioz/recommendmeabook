@@ -1,17 +1,22 @@
-import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router'
-import Home from '../views/Home.vue'
+import { createRouter, createWebHashHistory, RouteRecordRaw } from 'vue-router';
+import Login from '@/views/Login.vue';
+
+// lazy-loaded
+const Dashboard = () => import('@/views/Dashboard.vue');
 
 const routes: Array<RouteRecordRaw> = [
+  { path: '/', name: 'home', component: Login },
+  { path: '/login', component: Login },
   {
-    path: '/',
-    name: 'home',
-    component: Home
-  }
-]
+    path: '/dashboard',
+    // lazy-loaded
+    component: Dashboard,
+  },
+];
 
 const router = createRouter({
   history: createWebHashHistory(),
-  routes
-})
+  routes,
+});
 
-export default router
+export default router;
