@@ -24,13 +24,10 @@ export const auth = {
     login(context: any, user: User) {
       return AuthService.login(user).then(
         user => {
-          debugger;
-
           context.commit('loginSuccess', user);
           return Promise.resolve(user);
         },
         error => {
-          debugger;
           context.commit('loginFailure');
           return Promise.reject(error);
         }

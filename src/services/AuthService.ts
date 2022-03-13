@@ -1,6 +1,9 @@
 class AuthService {
   login(user: any) {
-    if (user.username === 'joe@example.com' && user.password === 'password1') {
+    if (
+      user.username === 'joe@creativeadvtech.com' &&
+      user.password === 'password1'
+    ) {
       localStorage.setItem(
         'user',
         JSON.stringify({

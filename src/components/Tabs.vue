@@ -1,43 +1,64 @@
 <template>
   <div class="tabs">
-    <div v-if="searchPlaceholder" class="flex"><input class="ml-auto" type="text" :placeholder="searchPlaceholder"></div>
+    <div v-if="searchPlaceholder" class="flex items-center justify-center ">
+      <div class="flex border-2 border-gray-200 rounded ml-auto ">
+        <input
+          class="px-4 py-2 w-80 border-none focus:outline-none focus:border-blue-400"
+          type="text"
+          :placeholder="searchPlaceholder"
+        />
+        <button class="">
+          <img src="../assets/search.png" class="inline w-8" />
+        </button>
+      </div>
+    </div>
     <div class="flex border-b">
       <div
-        class="tab flex items-center justify-center border-t-2 border-l-2 border-r-2 rounded-t p-5 cursor-pointer"
-        :class="active === tab ? 'border-4' : ''"
+        class="tab flex items-center justify-center rounded-t p-1 mr-8 cursor-pointer"
+        :class="
+          active === tab
+            ? 'font-semibold text-blue-900 border-b-2 border-blue-900'
+            : ''
+        "
         v-for="(tab, index) in tabsNames"
         :key="index"
-        @click="changeTab(tab)"
+        @click="changeTab(tab, index)"
       >
-        {{tab}}
+        {{ tab }}
       </div>
+    </div>
+    <div class="tabs-details">
+      <slot></slot>
     </div>
   </div>
 </template>
 
 <script lang="ts">
-import { defineComponent, PropType } from 'vue'
+import { defineComponent, PropType } from 'vue';
 
 export default defineComponent({
   name: 'Tabs',
   props: {
     tabsNames: {
       type: Array as PropType<Array<string>>,
-      required: true
+      required: true,
     },
-    searchPlaceholder: String
+    searchPlaceholder: String,
   },
-  data: function () {
+  data: function() {
     return {
-      active: this.tabsNames && this.tabsNames.length > 0 ? this.tabsNames[0] as string : ''
-    }
+      active:
+        this.tabsNames && this.tabsNames.length > 0
+          ? (this.tabsNames[0] as string)
+          : '',
+    };
   },
   emits: ['changed'],
   methods: {
-    changeTab: function (tab: string) {
-      this.active = tab
-      this.$emit('changed', tab)
-    }
-  }
-})
+    changeTab: function(name: string, index: number) {
+      this.active = name;
+      this.$emit('changed', { name, index });
+    },
+  },
+});
 </script>
