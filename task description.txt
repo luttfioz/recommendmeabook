@@ -1,17 +1,27 @@
 Task for candidate.
+JS Engineer Tech Challenge
 
-Create a simple application as on attached designs. For styles use Tailwindcss (of course you can write own styles and classes too if you need). 
-There are two views, one for login and one for logged user (account page). To create this application you should use already prepared project
- where you can find component which you should use for tabs. You can learn more about this component using 'storybook' npm task. 
- Of course you can modify Tabs component for example to change styles of it. Every data have to be mocked, there is no backend. 
-Please use lazy loading.
-Please remember to protect url before unauthorised user enter the account page. 
-Please use some store manager (Vuex for Vue). 
-Use your creativity and the best practices in code. The more good ideas the better. 
+The purpose of this exercise is to serve as a basis for the discussion in the tech interview. We ask you to implement a
+simple application or a script to do the following.
+User story
+Our customer loves buying books, but has terrible difficulty deciding which books to purchase. You want to help by
+writing an application or a script that:
+1. Will ask the user to select their preferred genre
+2. Will fetch a random book for the selected genre from
+https://www.goodreads.com/choiceawards/best-books-2020
+3. Will then open a browser (Chrome for example), and
+a. open Amazon.com
+b. find the selected book on Amazon
+c. add that book to the cart
+d. display the checkout page
 
-Link to designs:
-https://www.figma.com/file/OcdGZNVhq0YVXsmQjhiZQF/Test-CAT-frontend-position?node-id=0%3A1
-
+Now, the user just has to confirm the purchase and soon they will get to enjoy a new book to read!
+Deliverables
+A valid solution can be provided either as a .ZIP file, link to a git repository, or by simply attaching source code files to
+an email. Your solution should be runnable. Feel free to include any notes or documentation in a README file.
+We’re not expecting you to rely on service APIs but rather use browser manipulation tools like Puppeteer or similar to
+scrape the required data.
+The use of TypeScript is encouraged but not mandatory, feel free to write simple and clean JavaScript if you want.
 
 I added prettier
 I added tailwindcss
